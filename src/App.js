@@ -1,11 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import { getLocation, getRestaurants, getBurgers } from './apiCalls';
 
 function App() {
-  //console.log(getLocation('Boston, Massachusetts'))
-  // console.log(getRestaurants())
-  console.log(getBurgers())
+
   return (
     <div className="App">
       <header className="App-header">
