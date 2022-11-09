@@ -15,7 +15,8 @@ const Question = ({questions, updateScore, runningScore }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         checkAnswer()
-        if(currentQIndex === (questions.length - 1)) {
+        if(currentQIndex === (questions.length - 8)) {
+            console.log('game over')
             navToGameOver();
         } else {
             let indexCopy = currentQIndex
@@ -34,6 +35,7 @@ const Question = ({questions, updateScore, runningScore }) => {
     };
 
     const navToGameOver = () => {
+        console.log('triggered')
         history.push('/gameover');
     }
 
