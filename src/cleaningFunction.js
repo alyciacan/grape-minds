@@ -1,6 +1,9 @@
+const he = require('he');
+
 const formatQuestions = (questions) => {
     return questions.map(questionObj => {
-        return {question: questionObj.question, possAnswers: [questionObj.correct_answer,  ...questionObj.incorrect_answers].sort(), correct: questionObj.correct_answer}
+        const decodedAnswers = questionObj.incorrect_answers.map(ans => he.decode(ans))
+        return {question: he.decode(questionObj.question), possAnswers: [he.decode(questionObj.correct_answer),  ...decodedAnswers].sort(), correct: he.decode(questionObj.correct_answer)}
     })
 };
 
