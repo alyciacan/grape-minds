@@ -3,6 +3,7 @@ import { Form } from '../form/Form';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getWinePairings } from '../../apiCalls';
+import grapeGuy from '../../assets/happy-grape.png';
 
 export const Landing = () => {
     const [pairings, setPairings] = useState([]);
@@ -48,6 +49,7 @@ export const Landing = () => {
     return (
         <section className="landing-bubble">
             { toggleView() }
+            <img src={grapeGuy} className="landing-mascot" />
         </section>
     )
 };

@@ -11,13 +11,13 @@ function App() {
     <div className="App">
       <img className="logo" src={ logo } alt="Grape Minds logo" />
       <Switch>
-        <Route to="/landing">
+        <Route path="/landing">
           <Landing />
         </Route>
-        {/* <Route to="/gameplay">
-          {/* <GamePlay /> */}
-        {/* </Route>
-        <Route to="/dash">
+        <Route path="/gameplay">
+          <GamePlay />
+        </Route>
+        {/* <Route to="/dash">
           <Dashboard />
         </Route> */}
       </Switch>
