@@ -41,7 +41,6 @@ const Question = ({ questions }) => {
     };
 
     const navToGameOver = () => {
-        console.log('triggered')
         history.push('/gameover');
     };
     
