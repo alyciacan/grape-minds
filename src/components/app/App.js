@@ -1,6 +1,6 @@
 import './App.css';
 import logo from '../../assets/logo.png';
-import Landing from '../landing/Landing';
+import { Landing } from '../landing/Landing';
 import Dashboard from '../dashboard/Dashboard';
 import GamePlay from '../gameplay/GamePlay';
 import { Switch, Route } from 'react-router-dom';
@@ -14,12 +14,12 @@ function App() {
         <Route to="/landing">
           <Landing />
         </Route>
-        <Route to="/gameplay">
-          <GamePlay />
-        </Route>
+        {/* <Route to="/gameplay">
+          {/* <GamePlay /> */}
+        {/* </Route>
         <Route to="/dash">
           <Dashboard />
-        </Route>
+        </Route> */}
       </Switch>
     </div>
   );
