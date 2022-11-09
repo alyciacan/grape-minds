@@ -1,21 +1,27 @@
 import './Question.css';
 import { useState, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 
 
 const Question = ({questions, updateScore, runningScore }) => {
     let [currentQIndex, setCurrentQIndex] = useState(0)
     let userResponse = useRef("");
+    const history = useHistory();
 
     const handleClick = (e) => {
         userResponse.current = e.target.id
     };
 
     const handleSubmit = (e) => {
-        checkAnswer()
-        let indexCopy = currentQIndex
-        indexCopy++ 
         e.preventDefault();
-        setCurrentQIndex(indexCopy)
+        checkAnswer()
+        if(currentQIndex === (questions.length - 1)) {
+            navToGameOver();
+        } else {
+            let indexCopy = currentQIndex
+            indexCopy++ 
+            setCurrentQIndex(indexCopy)
+        }
     };
 
     const checkAnswer = () => {
@@ -26,6 +32,10 @@ const Question = ({questions, updateScore, runningScore }) => {
         }
         console.log(runningScore.current)
     };
+
+    const navToGameOver = () => {
+        history.push('/gameover');
+    }
 
     return (
         <section className="question-card">
