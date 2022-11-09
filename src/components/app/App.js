@@ -1,24 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import logo from '../../assets/logo.png';
+import { Landing } from '../landing/Landing';
+import Dashboard from '../dashboard/Dashboard';
+import GamePlay from '../gameplay/GamePlay';
+import { Switch, Route } from 'react-router-dom';
 
 function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <img className="logo" src={ logo } alt="Grape Minds logo" />
+      <Switch>
+        <Route to="/landing">
+          <Landing />
+        </Route>
+        {/* <Route to="/gameplay">
+          {/* <GamePlay /> */}
+        {/* </Route>
+        <Route to="/dash">
+          <Dashboard />
+        </Route> */}
+      </Switch>
     </div>
   );
 }
