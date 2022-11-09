@@ -64,8 +64,6 @@ export const Landing = () => {
         }
     };
 
-    console.log(wines);
-
     return (
         <section className="landing-bubble">
             { toggleView() }
