@@ -2,26 +2,14 @@ import './Form.css';
 import { useState, useContext } from 'react';
 import pairings from '../../triviaWinePairings';
 import { ScoreContext } from '../../contexts/ScoreContext';
+import topicCodes from '../../topicCodes';
 
 export const Form = ({ getWines }) => {
     const [userPrefs, setUserPrefs] = useState({ trivia: "", budget: ""});
     const { setScores } = useContext(ScoreContext);
 
-    const triviaTypes = {
-        books: 10,
-        film: 11,
-        music: 12,
-        science: 17,
-        math: 19,
-        sports: 21,
-        history: 23,
-        art: 25,
-        vehicles: 28,
-        animals: 27
-    };
-
     const triviaOptions = () => {
-        return Object.keys(triviaTypes).map(triviaType => {
+        return Object.keys(topicCodes).map(triviaType => {
             return <option value={ triviaType } key={ triviaType }>{ triviaType }</option>
         })
     };
