@@ -5,6 +5,7 @@ import Dashboard from '../dashboard/Dashboard';
 import GamePlay from '../gameplay/GamePlay';
 import GameOver from '../gameover/GameOver';
 import { Switch, Route } from 'react-router-dom';
+import { ScoreProvider } from '../../contexts/ScoreContext';
 
 function App() {
 
@@ -15,15 +16,17 @@ function App() {
         <Route path="/landing">
           <Landing />
         </Route>
-        <Route path="/gameplay">
-          <GamePlay />
-        </Route>
-        <Route path="/gameover">
-          <GameOver />
-        </Route>
-        {/* <Route to="/dash">
-          <Dashboard />
-        </Route> */}
+        <ScoreProvider>
+          <Route path="/gameplay">
+            <GamePlay />
+          </Route>
+          <Route path="/gameover">
+            <GameOver />
+          </Route>
+          {/* <Route to="/dash">
+            <Dashboard />
+          </Route> */}
+        </ScoreProvider>
       </Switch>
     </div>
   );

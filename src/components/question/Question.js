@@ -1,10 +1,12 @@
 import './Question.css';
-import { useState, useRef } from 'react';
+import { useState, useRef, useContext } from 'react';
 import { useHistory } from 'react-router-dom';
+import { ScoreContext } from '../../contexts/ScoreContext';
 
 
-const Question = ({questions, updateScore, runningScore }) => {
+const Question = ({questions }) => {
     let [currentQIndex, setCurrentQIndex] = useState(0)
+    const {score, setScore} = useContext(ScoreContext)
     let userResponse = useRef("");
     const history = useHistory();
 
@@ -12,14 +14,19 @@ const Question = ({questions, updateScore, runningScore }) => {
         userResponse.current = e.target.id
     };
 
+    const updateScore = (scoreChange) => {
+        let scoreCopy = score;
+        scoreCopy += scoreChange;
+        setScore(scoreCopy)
+    };
+
     const handleSubmit = (e) => {
         e.preventDefault();
-        checkAnswer()
+        checkAnswer();
         if(currentQIndex === (questions.length - 8)) {
-            console.log('game over')
             navToGameOver();
         } else {
-            let indexCopy = currentQIndex
+            let indexCopy = currentQIndex;
             indexCopy++ 
             setCurrentQIndex(indexCopy)
         }
@@ -31,14 +38,13 @@ const Question = ({questions, updateScore, runningScore }) => {
         } else {
             updateScore(-1)
         }
-        console.log(runningScore.current)
     };
 
     const navToGameOver = () => {
         console.log('triggered')
         history.push('/gameover');
     }
-
+    console.log(score)
     return (
         <section className="question-card">
             <h2>{questions[currentQIndex].question}</h2>
