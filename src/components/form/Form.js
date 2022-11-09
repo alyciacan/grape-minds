@@ -1,26 +1,15 @@
 import './Form.css';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState, useContext } from 'react';
 import pairings from '../../triviaWinePairings';
+import { ScoreContext } from '../../contexts/ScoreContext';
+import topicCodes from '../../topicCodes';
 
 export const Form = ({ getWines }) => {
     const [userPrefs, setUserPrefs] = useState({ trivia: "", budget: ""});
-
-    const triviaTypes = {
-        books: 10,
-        film: 11,
-        music: 12,
-        science: 17,
-        math: 19,
-        sports: 21,
-        history: 23,
-        art: 25,
-        vehicles: 28,
-        animals: 27
-    };
+    const { setScores } = useContext(ScoreContext);
 
     const triviaOptions = () => {
-        return Object.keys(triviaTypes).map(triviaType => {
+        return Object.keys(topicCodes).map(triviaType => {
             return <option value={ triviaType } key={ triviaType }>{ triviaType }</option>
         })
     };
@@ -35,6 +24,11 @@ export const Form = ({ getWines }) => {
         }
     };
 
+    const handleSubmit = () => {
+        setScores({ lastTopic: userPrefs.trivia })
+        getWines(pairings[userPrefs.trivia], parseInt(userPrefs.budget))
+    }
+
     return (
         <form className="form">
             <label htmlFor="trivia-type">Let's get started. What kind of trivia would you like to play today?</label>
@@ -48,7 +42,7 @@ export const Form = ({ getWines }) => {
                 <option value="50">$50</option>
                 <option value="25">$25</option>
             </select>
-            <button disabled={checkForErrors()} type="button" onClick={() => { getWines(pairings[userPrefs.trivia], parseInt(userPrefs.budget)) }}>Submit</button>
+            <button disabled={checkForErrors()} type="button" onClick={() => handleSubmit() }>Submit</button>
         </form>
     )
 }
