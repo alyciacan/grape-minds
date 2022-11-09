@@ -1,11 +1,10 @@
 import './Form.css';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import pairings from '../../triviaWinePairings';
 
-
-export const Form = () => {
+export const Form = ({ getWines }) => {
     const [userPrefs, setUserPrefs] = useState({ trivia: "", budget: ""});
-    const [pairings, setPairings] = useState([]);
 
     const triviaTypes = {
         books: 10,
@@ -36,10 +35,6 @@ export const Form = () => {
         }
     };
 
-    const getWinePairings = () => {
-        
-    }
-
     return (
         <form className="form">
             <label htmlFor="trivia-type">Let's get started. What kind of trivia would you like to play today?</label>
@@ -48,12 +43,12 @@ export const Form = () => {
                 { triviaOptions() }</select>
             <label htmlFor="budget">And what's your budget for a bottle of wine?</label>
             <select id="budget" onChange={(e) => setUserPrefs({ ...userPrefs, budget: e.target.value })}>
-                <option>Wine Budget:</option>
-                <option value="50+">$50+</option>
-                <option value="25-50">$25-$50</option>
-                <option value="under25">under $25</option>
+                <option>Max Price:</option>
+                <option value="100">$100</option>
+                <option value="50">$50</option>
+                <option value="25">$25</option>
             </select>
-            <button disabled={checkForErrors()} type="button" onClick={(e) => {checkForErrors()}}>Submit</button>
+            <button disabled={checkForErrors()} type="button" onClick={() => { getWines(pairings[userPrefs.trivia], parseInt(userPrefs.budget)) }}>Submit</button>
         </form>
     )
 }
