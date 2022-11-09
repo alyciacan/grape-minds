@@ -1,4 +1,5 @@
 import { formatQuestions } from './cleaningFunction';
+import topicCodes from './topicCodes';
 const API_key = process.env.REACT_APP_API_KEY;
 
 const getWinePairings = (type, price) => {
@@ -6,8 +7,8 @@ const getWinePairings = (type, price) => {
         .then(resp => resp.json())
 };
 
-const getQuestions = () => {
-    return fetch('https://opentdb.com/api.php?amount=10&category=11&type=multiple')
+const getQuestions = (topic) => {
+    return fetch(`https://opentdb.com/api.php?amount=10&category=${topicCodes[topic]}&type=multiple`)
         .then(resp => resp.json())
         .then(resp => formatQuestions(resp.results))
 };
