@@ -5,12 +5,15 @@ import App from './components/app/App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ScoreProvider } from './contexts/ScoreContext';
+import { WineProvider } from './contexts/WineContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router>
     <ScoreProvider>
-      <App />
+      <WineProvider>
+          <App />
+      </WineProvider>
     </ScoreProvider>
   </Router>
 );
