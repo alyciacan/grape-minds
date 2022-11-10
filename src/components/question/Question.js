@@ -6,7 +6,7 @@ import { ScoreContext } from '../../contexts/ScoreContext';
 
 const Question = ({ questions }) => {
     let [currentQIndex, setCurrentQIndex] = useState(0)
-    const {scores, setScores} = useContext(ScoreContext)
+    const {lastScore, setLastScore} = useContext(ScoreContext)
     let userResponse = useRef("");
     const history = useHistory();
 
@@ -15,9 +15,9 @@ const Question = ({ questions }) => {
     };
 
     const updateScore = (scoreChange) => {
-        let scoreCopy = scores.lastScore;
+        let scoreCopy = lastScore;
         scoreCopy += scoreChange;
-        setScores({ lastScore: scoreCopy })
+        setLastScore(scoreCopy)
     };
 
     const handleSubmit = (e) => {
@@ -43,7 +43,6 @@ const Question = ({ questions }) => {
     const navToGameOver = () => {
         history.push('/gameover');
     };
-    
     return (
         <section className="question-card">
             <h2>{questions[currentQIndex].question}</h2>

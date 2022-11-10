@@ -1,6 +1,7 @@
 import { useContext, React } from 'react';
 import './Dashboard.css';
 import { WineContext } from '../../contexts/WineContext';
+import { Link } from 'react-router-dom';
 
 
 const Dashboard = () => {
@@ -16,7 +17,7 @@ const Dashboard = () => {
        return wines.map(wine => {
             const id = wine.wineLabel;
             return (
-            <li id={ wine.wineLabel }>
+            <li key={ wine.wineLabel } id={ wine.wineLabel }>
                 <span className="label">{ wine.wineLabel }</span>
                 <span className="price">{ wine.price }</span>
                 <p onClick={() => { deleteWine(id) }}>🗑️</p>
@@ -45,7 +46,9 @@ const Dashboard = () => {
                         <figure>Highest Score
                             <h4>95%</h4>
                         </figure>
-                    <button type="button" className="play-again-btn">Play again!</button>
+                    <Link to="/">
+                        <button type="button" className="play-again-btn">Play again!</button>
+                    </Link>
                 </section>
                 <section className="saved-wines">
                     <h3>My Saved Wines</h3>

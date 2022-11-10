@@ -6,7 +6,8 @@ import topicCodes from '../../topicCodes';
 
 export const Form = ({ getWines }) => {
     const [userPrefs, setUserPrefs] = useState({ trivia: "", budget: ""});
-    const { setScores } = useContext(ScoreContext);
+    const { setLastScore } = useContext(ScoreContext);
+    const {topics, setTopics} = useContext(ScoreContext);
 
     const triviaOptions = () => {
         return Object.keys(topicCodes).map(triviaType => {
@@ -25,9 +26,9 @@ export const Form = ({ getWines }) => {
     };
 
     const handleSubmit = () => {
-        setScores({ lastTopic: userPrefs.trivia })
         getWines(pairings[userPrefs.trivia], parseInt(userPrefs.budget))
-    }
+        setTopics([userPrefs.trivia, ...topics]);
+    };
 
     return (
         <form className="form">

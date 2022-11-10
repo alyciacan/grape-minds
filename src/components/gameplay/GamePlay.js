@@ -7,19 +7,21 @@ import Question from '../question/Question';
 const GamePlay = () => {
     const [questions, setQuestions] = useState([]);
     const [loading, setLoading] = useState(true);
-    const {scores, setScores} = useContext(ScoreContext)
+    const {topics} = useContext(ScoreContext);
+    const {lastScore, setLastScore} = useContext(ScoreContext);
 
     useEffect(() => {
-        getQuestions(scores.lastTopic)
+        console.log(topics[0])
+        getQuestions(topics[0])
             .then(resp => setQuestions(resp))
             .then(() => setLoading(false))
             .then(() => resetScores());
     }, []);
 
     const resetScores = () => {
-        let copy = scores.lastScore;
+        let copy = lastScore;
         copy = 0;
-        setScores({ lastScore: copy })
+        setLastScore(copy)
     };
 
     if(loading) {
