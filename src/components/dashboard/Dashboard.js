@@ -2,6 +2,7 @@ import { useContext, React } from 'react';
 import './Dashboard.css';
 import { WineContext } from '../../contexts/WineContext';
 import { Link } from 'react-router-dom';
+import Stats from '../stats/Stats';
 
 
 const Dashboard = () => {
@@ -25,7 +26,7 @@ const Dashboard = () => {
             </li>
             )    
         }) 
-    }
+    };
 
         return (
             <main>
@@ -33,19 +34,7 @@ const Dashboard = () => {
                     <h2>Grape Minds is the premier trivia game for adventurous oenophiles!</h2>
                 </aside>
                 <section className="trivia-stats">
-                    <h3>My Trivia Stats</h3>
-                        <figure>Total Games Played
-                            <h4>5</h4>
-                        </figure>
-                        <figure>Average Score
-                            <h4>75%</h4>
-                        </figure>
-                        <figure>Most-Saved Wine
-                            <h4>Chianti</h4>
-                        </figure>
-                        <figure>Highest Score
-                            <h4>95%</h4>
-                        </figure>
+
                     <Link to="/">
                         <button type="button" className="play-again-btn">Play again!</button>
                     </Link>

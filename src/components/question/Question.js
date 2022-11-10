@@ -4,9 +4,9 @@ import { useHistory } from 'react-router-dom';
 import { ScoreContext } from '../../contexts/ScoreContext';
 
 
-const Question = ({ questions }) => {
+const Question = ({ questions, updateStats }) => {
     let [currentQIndex, setCurrentQIndex] = useState(0)
-    const {lastScore, setLastScore} = useContext(ScoreContext)
+    const { lastScore, setLastScore } = useContext(ScoreContext)
     let userResponse = useRef("");
     const history = useHistory();
 
@@ -24,6 +24,7 @@ const Question = ({ questions }) => {
         e.preventDefault();
         checkAnswer();
         if(currentQIndex === (questions.length - 8)) {
+            updateStats();
             navToGameOver();
         } else {
             let indexCopy = currentQIndex;

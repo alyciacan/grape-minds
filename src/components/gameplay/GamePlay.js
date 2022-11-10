@@ -8,15 +8,19 @@ const GamePlay = () => {
     const [questions, setQuestions] = useState([]);
     const [loading, setLoading] = useState(true);
     const {topics} = useContext(ScoreContext);
-    const {lastScore, setLastScore} = useContext(ScoreContext);
+    const {lastScore, setLastScore, gamesPlayed, setGamesPlayed} = useContext(ScoreContext);
 
     useEffect(() => {
-        console.log(topics[0])
         getQuestions(topics[0])
             .then(resp => setQuestions(resp))
             .then(() => setLoading(false))
             .then(() => resetScores());
     }, []);
+
+    const updateStats = () => {
+        const game = {score: lastScore, topic: topics[0]};
+        setGamesPlayed([game, ...gamesPlayed]);
+    };
 
     const resetScores = () => {
         let copy = lastScore;
@@ -24,12 +28,13 @@ const GamePlay = () => {
         setLastScore(copy)
     };
 
+    console.log(gamesPlayed)
     if(loading) {
         return <p>loading...</p>
     } else {
         return (
             <section className="gameplay">
-                < Question questions={ questions } />
+                < Question questions={ questions } updateStats={ updateStats } />
             </section>
         )
     };
