@@ -5,7 +5,6 @@ import Dashboard from '../dashboard/Dashboard';
 import GamePlay from '../gameplay/GamePlay';
 import GameOver from '../gameover/GameOver';
 import { Switch, Route } from 'react-router-dom';
-// import { WineProvider } from '../../contexts/WineContext';
 
 function App() {
 
@@ -16,13 +15,13 @@ function App() {
           <Route exact path="/">
             <Landing />
           </Route>
-          <Route exact path="/dash">
+          <Route path="/dashboard">
               <Dashboard />
             </Route> 
-          <Route exact path="/gameplay">
+          <Route path="/gameplay">
             <GamePlay />
           </Route>
-          <Route exact path="/gameover">
+          <Route path="/gameover">
             <GameOver />
           </Route>
       </Switch>

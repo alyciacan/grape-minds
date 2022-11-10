@@ -6,17 +6,20 @@ import { WineContext } from '../../contexts/WineContext';
 const Dashboard = () => {
     const {wines, setWines} = useContext(WineContext);
 
-    const deleteWine = (e) => {
-        console.log(e.target.closest("li").id)
-    }
+    const deleteWine = (id) => {
+        const winesCopy = [...wines];
+        const filteredWines = winesCopy.filter(wine => wine.wineLabel !== id);
+        setWines(filteredWines);
+    };
 
     const fillWineShelf = () => {
        return wines.map(wine => {
+            const id = wine.wineLabel;
             return (
             <li id={ wine.wineLabel }>
                 <span className="label">{ wine.wineLabel }</span>
                 <span className="price">{ wine.price }</span>
-                <p onClick={(e) => { deleteWine(e) }}>🗑️</p>
+                <p onClick={() => { deleteWine(id) }}>🗑️</p>
                 <hr/>
             </li>
             )    
@@ -24,7 +27,7 @@ const Dashboard = () => {
     }
 
         return (
-            <React.Fragment>
+            <main>
                 <aside className="about">
                     <h2>Grape Minds is the premier trivia game for adventurous oenophiles!</h2>
                 </aside>
@@ -50,7 +53,7 @@ const Dashboard = () => {
                         { fillWineShelf() }
                     </ul>
                 </section>
-            </React.Fragment>
+            </main>
         )
 
 };
