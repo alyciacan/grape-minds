@@ -11,7 +11,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Router>
     <ScoreProvider>
-        <App />
+      <WineProvider>
+          <App />
+      </WineProvider>
     </ScoreProvider>
   </Router>
 );
