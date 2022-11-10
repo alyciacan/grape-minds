@@ -4,12 +4,12 @@ import { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { getWinePairings } from '../../apiCalls';
 import grapeGuy from '../../assets/happy-grape.png';
-// import { WineContext } from '../../contexts/WineContext';
+import { WineContext } from '../../contexts/WineContext';
 
 export const Landing = () => {
     const [pairings, setPairings] = useState([]);
     const [savedMsg, setSavedMsg] = useState("")
-    // const { wines, setWines } = useContext(WineContext);
+    const { wines, setWines } = useContext(WineContext);
 
     const getWines = (type, price) => {
         getWinePairings(type, price)
@@ -17,15 +17,15 @@ export const Landing = () => {
     };
 
 
-    // const saveWine = (e, title, price) => {
-    //     const wineObj = { wineLabel: title, price: price, id: e.target.id }
-    //     if(!wines.filter(wine => wine.wineLabel === wineObj.wineLabel).length) {
-    //         setWines([...wines, wineObj]);
-    //         setSavedMsg("Saved!")
-    //     } else {
-    //         setSavedMsg("You have already saved that wine.")
-    //     };
-    // };
+    const saveWine = (e, title, price) => {
+        const wineObj = { wineLabel: title, price: price, id: e.target.id }
+        if(!wines.filter(wine => wine.wineLabel === wineObj.wineLabel).length) {
+            setWines([...wines, wineObj]);
+            setSavedMsg("Saved!")
+        } else {
+            setSavedMsg("You have already saved that wine.")
+        };
+    };
 
     const packageWines = () => {
         return pairings.map(wine => {
