@@ -35,7 +35,7 @@ export const Landing = () => {
                 <div className="wine-rec" key={title}>
                     <p>{title}</p>
                     <p id="price">{price}</p>
-                    <button type="button" id={ title } onClick={(e) => {console.log('hello')}}>Save</button>
+                    <button type="button" id={ title } onClick={(e) => {saveWine(e, title, price)}}>Save</button>
                 </div>
             )
         })
