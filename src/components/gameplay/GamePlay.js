@@ -20,7 +20,9 @@ const GamePlay = () => {
         let copy = scores.lastScore;
         copy = 0;
         setScores({ lastScore: copy })
-    }
+    };
+
+    console.log("hello")
 
     if(loading) {
         return <p>loading...</p>

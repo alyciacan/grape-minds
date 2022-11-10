@@ -6,18 +6,21 @@ import { WineContext } from '../../contexts/WineContext';
 const Dashboard = () => {
     const {wines, setWines} = useContext(WineContext);
 
+    const deleteWine = (e) => {
+        console.log(e.target.closest("li").id)
+    }
+
     const fillWineShelf = () => {
-        wines.map(wine => {
+       return wines.map(wine => {
             return (
-            <li>
+            <li id={ wine.wineLabel }>
                 <span className="label">{ wine.wineLabel }</span>
                 <span className="price">{ wine.price }</span>
-                <span onClick={() => {deleteWine()}}>🗑️</span>
+                <p onClick={(e) => { deleteWine(e) }}>🗑️</p>
                 <hr/>
             </li>
             )    
-        })
-        return 
+        }) 
     }
 
         return (
