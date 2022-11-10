@@ -22,8 +22,6 @@ const GamePlay = () => {
         setScores({ lastScore: copy })
     };
 
-    console.log("hello")
-
     if(loading) {
         return <p>loading...</p>
     } else {

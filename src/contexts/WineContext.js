@@ -1,6 +1,6 @@
 import { useState, createContext } from 'react';
 
-export const WineContext = createContext([]);
+export const WineContext = createContext();
 
 export const WineProvider = ({ children }) => {
     const [wines, setWines] = useState([]);
