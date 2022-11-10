@@ -4,7 +4,7 @@ import { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const GameOver = () => {
-    const { lastScore, setLastScore } = useContext(ScoreContext);
+    const { lastScore } = useContext(ScoreContext);
 
     const calculatePercent = () => {
         const percent = lastScore/10 * 100

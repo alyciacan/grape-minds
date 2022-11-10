@@ -20,6 +20,7 @@ const GamePlay = () => {
     const updateStats = () => {
         const game = {score: lastScore, topic: topics[0]};
         setGamesPlayed([game, ...gamesPlayed]);
+        console.log('updated stats', gamesPlayed)
     };
 
     const resetScores = () => {
@@ -28,7 +29,6 @@ const GamePlay = () => {
         setLastScore(copy)
     };
 
-    console.log(gamesPlayed)
     if(loading) {
         return <p>loading...</p>
     } else {
