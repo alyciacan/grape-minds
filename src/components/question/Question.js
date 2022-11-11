@@ -5,24 +5,27 @@ import { ScoreContext } from '../../contexts/ScoreContext';
 
 
 const Question = ({ questions, updateStats }) => {
-    let [currentQIndex, setCurrentQIndex] = useState(0)
-    const { lastScore, setLastScore } = useContext(ScoreContext)
-    let userResponse = useRef("");
+    let [currentQIndex, setCurrentQIndex] = useState(0);
+    let [userResponse, setUserResponse] = useState("");
+    const { lastScore, setLastScore } = useContext(ScoreContext);
+    // let userResponse = useRef("");
     const history = useHistory();
 
     const handleClick = (e) => {
-        userResponse.current = e.target.id
+        setUserResponse(e.target.id);
+        console.log(userResponse)
     };
 
     const updateScore = (scoreChange) => {
         let scoreCopy = lastScore;
         scoreCopy += scoreChange;
-        setLastScore(scoreCopy)
+        setLastScore(scoreCopy);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
         checkAnswer();
+        setUserResponse("");
         if(currentQIndex === (questions.length - 8)) {
             updateStats();
             navToGameOver();
@@ -47,10 +50,12 @@ const Question = ({ questions, updateStats }) => {
     return (
         <section className="question-card">
             <h2>{questions[currentQIndex].question}</h2>
-            { questions[currentQIndex].possAnswers.map((choice) => {
-                return <button type="button" className="choice" key={ choice } id={ choice } onClick={(e) => { handleClick(e)} }>{ choice }</button> }
-            )}
-            <button type="button" className="submit-answer" onClick={(e) => { handleSubmit(e) } }>Submit</button>
+            <div className="choices-box">
+                { questions[currentQIndex].possAnswers.map((choice) => {
+                    return <button type="button" className="choice" key={ choice } id={ choice } onClick={(e) => { handleClick(e)} }>{ choice }</button> }
+                )}
+            </div>
+            <button type="button" className="submit-answer-btn" disabled={!userResponse} onClick={(e) => { handleSubmit(e) } }>Submit</button>
         </section>
     )
 }
