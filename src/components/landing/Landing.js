@@ -1,6 +1,6 @@
 import './Landing.css';
 import { Form } from '../form/Form';
-import { useState, useContext } from 'react';
+import { useState, useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { getWinePairings } from '../../apiCalls';
 import grapeGuy from '../../assets/happy-grape.png';
@@ -10,15 +10,16 @@ export const Landing = () => {
     const [pairings, setPairings] = useState([]);
     const [savedMsg, setSavedMsg] = useState("")
     const { wines, setWines } = useContext(WineContext);
+    const wineType = useRef("");
 
     const getWines = (type, price) => {
+        wineType.current = type;
         getWinePairings(type, price)
             .then(wineArr => setPairings(wineArr.recommendedWines))
     };
 
-
     const saveWine = (e, title, price) => {
-        const wineObj = { wineLabel: title, price: price, id: e.target.id }
+        const wineObj = { wineLabel: title, price: price, type: wineType.current, id: e.target.id }
         if(!wines.filter(wine => wine.wineLabel === wineObj.wineLabel).length) {
             setWines([...wines, wineObj]);
             setSavedMsg("Saved!")
