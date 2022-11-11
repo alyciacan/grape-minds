@@ -1,12 +1,12 @@
 import './Form.css';
 import { useState, useContext } from 'react';
+import PropTypes from 'prop-types';
 import pairings from '../../triviaWinePairings';
 import { ScoreContext } from '../../contexts/ScoreContext';
 import topicCodes from '../../topicCodes';
 
 export const Form = ({ getWines }) => {
     const [userPrefs, setUserPrefs] = useState({ trivia: "", budget: ""});
-    const { setLastScore } = useContext(ScoreContext);
     const {topics, setTopics} = useContext(ScoreContext);
 
     const triviaOptions = () => {
@@ -15,7 +15,7 @@ export const Form = ({ getWines }) => {
         })
     };
 
-    const checkForErrors = (e) => {
+    const checkForErrors = () => {
         if(userPrefs.trivia === "Trivia Categories:" || userPrefs.budget === "Wine Budget:") {
             return true;
         } else if (!userPrefs.trivia || !userPrefs.budget) {
@@ -46,4 +46,8 @@ export const Form = ({ getWines }) => {
             <button className="landing-btn" disabled={checkForErrors()} type="button" onClick={() => handleSubmit() }>Submit</button>
         </form>
     )
-}
+};
+
+Form.propTypes = {
+    getWines: PropTypes.func.isRequired
+};
