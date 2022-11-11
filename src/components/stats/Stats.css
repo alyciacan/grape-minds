@@ -1,0 +1,37 @@
+* {
+  margin: 0%;
+}
+.stats-box {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 5%;
+}
+
+figure {
+    min-height: 20vh;
+    width: 75%;
+    border-radius: 20%;
+    background-color: black;
+    background-image:
+      radial-gradient(
+        #A56Af7,
+        black
+      );
+    display: flex;
+    flex-direction: column;
+    min-width: 18vw;
+    position: relative;
+}
+
+.stat {
+  font-size: 150%;
+  height: 100%;
+  padding: 40% 0;
+}
+
+figure > p {
+  position: absolute;
+  left: 5%;
+  bottom: 5%;
+  font-weight: bold;
+}

@@ -36,7 +36,7 @@ export const Landing = () => {
                 <div className="wine-rec" key={title}>
                     <p>{title}</p>
                     <p id="price">{price}</p>
-                    <button type="button" id={ title } onClick={(e) => {saveWine(e, title, price)}}>Save</button>
+                    <p className="heart" id={ title } onClick={(e) => {saveWine(e, title, price)}}>&#9825;</p>
                 </div>
             )
         })
@@ -45,10 +45,12 @@ export const Landing = () => {
     const toggleView = () => {
         if(pairings.length) {
             return (
-                <section>
-                    <h1>Great! Here are the wines I recommend to go with your game:</h1>
-                    { packageWines() }
-                    <p>{ savedMsg }</p>
+                <section className="wine-recs">
+                    <h1 className="wine-recs-header">Great! Here are the wines I recommend to go with your game:</h1>
+                    <div className="wine-list">
+                        { packageWines() }
+                    </div>
+                    <p className="saved-msg">{ savedMsg }</p>
                     <Link to="/gameplay" className="start-btn">
                         <button type="button">START TRIVIA!</button>
                     </Link>
@@ -57,10 +59,10 @@ export const Landing = () => {
         }
         else {
             return (
-                <div>
-                    <h1 className="welcome-msg">Hi! Welcome to GRAPE MINDS, the trivia game for wine snobs!</h1>
+                <section className="welcome-form">
+                    <h1 className="welcome-msg">Welcome to GRAPE MINDS, the trivia game for wine snobs!</h1>
                     <Form getWines={getWines}/>
-                </div>
+                </section>
             )
         }
     };
@@ -68,7 +70,6 @@ export const Landing = () => {
     return (
         <section className="landing-bubble">
             { toggleView() }
-            <img src={grapeGuy} className="landing-mascot" />
         </section>
     )
 
