@@ -1,0 +1,39 @@
+{ "questions": [
+    {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "How many kilobytes in one gigabyte (in decimal)?",
+        "correct_answer": "1000000",
+        "incorrect_answers": [
+        "1024",
+        "1000",
+        "1048576"
+        ]
+    },
+    {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "What is it called when you stop an api request in a testing environment?",
+        "correct_answer": "intercepting",
+        "incorrect_answers": [
+        "fumbling",
+        "scrimmage",
+        "blocking"
+        ]
+    },
+    {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "What is the bit of (possibly fake) data provided to an intercept called?",
+        "correct_answer": "stub",
+        "incorrect_answers": [
+        "decoy",
+        "lie",
+        "alias"
+        ]
+        }
+]
+}
