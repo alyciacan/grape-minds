@@ -32,7 +32,7 @@ const Dashboard = () => {
     };
 
         return (
-            <main>
+            <main className="dashboard">
                 <aside className="about">
                     <h2>Grape Minds is the premier trivia game for adventurous oenophiles!</h2>
                 </aside>
