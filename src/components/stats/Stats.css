@@ -32,6 +32,6 @@ figure {
 figure > p {
   position: absolute;
   left: 5%;
-  bottom: 10%;
+  bottom: 5%;
   font-weight: bold;
 }

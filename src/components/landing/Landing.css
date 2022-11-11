@@ -1,3 +1,59 @@
-.landing-mascot {
-    max-height: 150px;
+.landing-bubble {
+    align-items: center;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.welcome-form,
+.wine-recs {
+    display: flex;
+    flex-direction: column;
+    max-width: 60vw;
+    min-height: 75vh;
+    align-content: center;
+    justify-content: space-evenly;
+}
+
+.welcome-msg,
+.wine-recs-header {
+    font-size: 175%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form > *,
+.wine-rec > * {
+    margin: 1%;
+    font-size: 150%;
+}
+
+.landing-btn {
+    font-size: 100%;
+}
+
+.heart {
+    cursor: pointer;
+    display: inline;
+}
+
+.heart:active {
+    font-size: 145%;
+}
+
+.wine-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.saved-msg {
+    bottom: 30%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    position: absolute;
 }

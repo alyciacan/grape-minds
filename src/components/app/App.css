@@ -5,11 +5,30 @@
   height: 100vh;
   box-sizing: border-box;
   font-family: 'Kanit', sans-serif;
+  display: flex;
 }
 
 .logo {
-  position: relative;
   top: 15px;
   right: 40%;
   max-height: 20vh;
+}
+
+.mascot {
+  max-height: 200px;
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  border-radius: 15% 85% 50% 50% / 67% 37% 63% 33% ;
+  background-image:
+  linear-gradient(to bottom, #86b626, black);
+  box-shadow: 0 0 10px 10px black inset;
+}
+
+.logos {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 100vh;
+
 }

@@ -86,7 +86,7 @@ const Stats = () => {
         if(!wines.length) {
            return (
                 <figure>
-                    <h4 className="stat">No games played!</h4>
+                    <h4 className="stat">No wines saved!</h4>
                     <p>Most-Saved Varietal</p>
                 </figure>
                 )
