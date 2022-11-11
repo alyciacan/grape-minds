@@ -1,0 +1,26 @@
+.game-over {
+    margin: 10% 20% 0 30%;
+    display: flex;
+    flex-direction: column;
+    height: 40vh;
+    width: 30vw;
+    justify-content: space-between;
+    border-radius: 20%;
+    box-shadow: 8px 0px 5px #F05365;
+    /* border: 2px solid #F05365; */
+    padding: 3%;
+    background-image: linear-gradient(90deg, black, #F05365)
+
+}
+
+.gameover-score {
+    font-size: 200%;
+}
+
+.home-btn {
+    cursor: pointer;
+}
+
+.game-over-hdr {
+    font-size: 200%;
+}
