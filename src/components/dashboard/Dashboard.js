@@ -15,6 +15,9 @@ const Dashboard = () => {
     };
 
     const fillWineShelf = () => {
+        if(!wines.length) {
+            return <li>It looks like you haven't saved any wines yet!</li>
+        } else {
        return wines.map(wine => {
             const id = wine.wineLabel;
             return (
@@ -25,7 +28,7 @@ const Dashboard = () => {
                 <hr/>
             </li>
             )    
-        }) 
+        })}
     };
 
         return (
