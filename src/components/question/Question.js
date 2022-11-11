@@ -1,5 +1,6 @@
 import './Question.css';
-import { useState, useRef, useContext } from 'react';
+import { useState, useContext } from 'react';
+import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { ScoreContext } from '../../contexts/ScoreContext';
 
@@ -8,12 +9,10 @@ const Question = ({ questions, updateStats }) => {
     let [currentQIndex, setCurrentQIndex] = useState(0);
     let [userResponse, setUserResponse] = useState("");
     const { lastScore, setLastScore } = useContext(ScoreContext);
-    // let userResponse = useRef("");
     const history = useHistory();
 
     const handleClick = (e) => {
         setUserResponse(e.target.id);
-        console.log(userResponse)
     };
 
     const updateScore = (scoreChange) => {
@@ -58,6 +57,11 @@ const Question = ({ questions, updateStats }) => {
             <button type="button" className="submit-answer-btn" disabled={!userResponse} onClick={(e) => { handleSubmit(e) } }>Submit</button>
         </section>
     )
-}
+};
 
 export default Question;
+
+Question.propTypes = {
+    questions: PropTypes.array.isRequired,
+    updateStats: PropTypes.func.isRequired
+};
