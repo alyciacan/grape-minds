@@ -18,12 +18,18 @@ const Stats = () => {
 
     const calcTotalGamesPlayed = () => {
         if(!gamesPlayed.length) {
-            return <h4>No games played!</h4>
+            return (
+                <figure>
+                    <h4 className="stat">No games played!</h4>
+                    <p>Total Games Played</p>
+                </figure>
+                )
         } else {
             return (
                 <figure>
-                    <p>Total Games Played:</p>
-                    <h4>{ gamesPlayed.length }</h4>
+                    <h4 className="stat">{ gamesPlayed.length }</h4>
+                    <p>Total Games Played</p>
+
                 </figure>
             )
         }
@@ -31,15 +37,20 @@ const Stats = () => {
 
     const calcAvgScore = () => {
         if(!gamesPlayed.length) {
-            return <h4>No games played!</h4>
+            return (
+                <figure>
+                    <h4 className="stat">No games played!</h4>
+                    <p>Average Score</p>
+                </figure>
+                )
         } else {
             const total =  gamesPlayed.reduce((acc, curr) => {
                 return acc += curr.score
                 }, 0)
             return (
                 <figure>
-                    <p>Average Score:</p>
-                    <h4>{`${calculatePercent(total, gamesPlayed.length)}%`}</h4>
+                    <h4 className="stat">{`${calculatePercent(total, gamesPlayed.length)}%`}</h4>
+                    <p>Average Score</p>
                 </figure>
             )
         }
@@ -47,7 +58,12 @@ const Stats = () => {
 
     const calcMostPlayedTrivia = () => {
         if(!gamesPlayed.length) {
-            return <h4>No games played!</h4>
+            return (
+                <figure>
+                    <h4 className="stat">No games played!</h4>
+                    <p>Most-Played Topic</p>
+                </figure>
+                )
         } else {
             const frequencyObj = gamesPlayed.reduce((newObj, currGame) => {
                 newObj[currGame.topic] = newObj[currGame.topic] ? newObj[currGame.topic] + 1 : 1
@@ -60,15 +76,20 @@ const Stats = () => {
             });
             return (
                 <figure>
-                    <p>Most-Played Topic:</p>
-                    <h4>{ mostPlayedTopic }</h4>
+                    <h4 className="stat">{ mostPlayedTopic }</h4>
+                    <p>Most-Played Topic</p>
                 </figure>
             )
         }
     };
     const calcMostSavedWine = () => {
         if(!wines.length) {
-            return <h4>No wines saved!</h4>
+           return (
+                <figure>
+                    <h4 className="stat">No games played!</h4>
+                    <p>Most-Saved Varietal</p>
+                </figure>
+                )
         } else {
         const frequencyObj = wines.reduce((newObj, currWine) => {
             newObj[currWine.type] = newObj[currWine.type] ? newObj[currWine.type] + 1 : 1
@@ -81,8 +102,8 @@ const Stats = () => {
         });
         return (
             <figure>
-                <p>Most-Saved Varietal:</p>
-                <h4>{ mostSavedType.split("_").join(" ") }</h4>
+                <h4 className="stat">{ mostSavedType.split("_").join(" ") }</h4>
+                <p>Most-Saved Varietal</p>
             </figure>
         )
         };
@@ -90,7 +111,6 @@ const Stats = () => {
 
     return (
         <section className="stats-box">
-            <h3>My Trivia Stats</h3>
             { calcTotalGamesPlayed() }
             { calcAvgScore() }
             { calcMostPlayedTrivia() }

@@ -1,0 +1,26 @@
+.dashboard {
+    display: grid;
+    grid-template-columns: 1.5fr 1.5fr 1fr;
+    column-gap: 25px;
+    padding: 10px;
+}
+
+.trivia-stats,
+.saved-wines {
+    border-radius: 20%;
+}
+
+.saved-wines {
+    max-width: 18vw;
+    padding: 10px;
+}
+
+.trivia-stats, 
+.about {
+    max-width: 35vw;
+    padding: 10px;
+}
+
+.about-text {
+    font-size: 250%;
+}

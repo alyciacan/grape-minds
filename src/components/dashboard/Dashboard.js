@@ -34,9 +34,10 @@ const Dashboard = () => {
         return (
             <main className="dashboard">
                 <aside className="about">
-                    <h2>Grape Minds is the premier trivia game for adventurous oenophiles!</h2>
+                    <h2 className="about-text">Grape Minds is the premier trivia game for adventurous oenophiles!</h2>
                 </aside>
                 <section className="trivia-stats">
+                    <h3>My Trivia Stats</h3>
                     <Stats />
                     <Link to="/">
                         <button type="button" className="play-again-btn">Play again!</button>
