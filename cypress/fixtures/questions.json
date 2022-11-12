@@ -1,4 +1,4 @@
-{ "questions": [
+{ "results": [
     {
         "category": "Science: Computers",
         "type": "multiple",
@@ -33,6 +33,78 @@
         "decoy",
         "lie",
         "alias"
+        ]
+        },
+        {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "What type of server stores no data about its user's identity or activity?",
+        "correct_answer": "stateless",
+        "incorrect_answers": [
+        "blank",
+        "boring",
+        "lazy"
+        ]
+        },
+        {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "What does CRUD stand for?",
+        "correct_answer": "Change, Read, Update, Delete",
+        "incorrect_answers": [
+        "Cancel, Read, Understand, Delay",
+        "Can't Really Understate Difficulty",
+        "Cool Risks Undermine Determination"
+        ]
+        },
+        {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "What is it called when you check to make sure you have the right data type?",
+        "correct_answer": "Typechecking",
+        "incorrect_answers": [
+        "Being extra careful",
+        "DataLooking",
+        "TypeScript"
+        ]
+        },
+        {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "Which hook is most similar to componentDidMount?",
+        "correct_answer": "useEffect",
+        "incorrect_answers": [
+        "useRef",
+        "useHistory",
+        "useState"
+        ]
+        },
+        {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "Which hook doesn't cause a re-render?",
+        "correct_answer": "useRef",
+        "incorrect_answers": [
+        "none - they all do",
+        "useHistory",
+        "useState"
+        ]
+        },
+        {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "Which best describes the flow of data in React?",
+        "correct_answer": "Data down, actions up",
+        "incorrect_answers": [
+        "Actions down, data up",
+        "Inheritance from ancestors",
+        "Sibling to sibling"
         ]
         }
 ]
