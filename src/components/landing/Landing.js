@@ -3,7 +3,6 @@ import { Form } from '../form/Form';
 import { useState, useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { getWinePairings } from '../../apiCalls';
-import grapeGuy from '../../assets/happy-grape.png';
 import { WineContext } from '../../contexts/WineContext';
 
 export const Landing = () => {

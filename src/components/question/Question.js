@@ -25,7 +25,7 @@ const Question = ({ questions, updateStats }) => {
         e.preventDefault();
         checkAnswer();
         setUserResponse("");
-        if(currentQIndex === (questions.length - 8)) {
+        if(currentQIndex === (questions.length - 1)) {
             updateStats();
             navToGameOver();
         } else {
@@ -36,7 +36,7 @@ const Question = ({ questions, updateStats }) => {
     };
 
     const checkAnswer = () => {
-        if(userResponse.current === questions[currentQIndex].correct) {
+        if(userResponse === questions[currentQIndex].correct) {
             updateScore(1)
         } else {
             updateScore(-1)
