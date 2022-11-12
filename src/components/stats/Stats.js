@@ -8,11 +8,11 @@ const Stats = () => {
     const { wines } = useContext(WineContext);
 
     const calculatePercent = (total, denom) => {
-        const percent = total/denom * 100
+        const percent = (total/(denom*10)) * 100
         if(percent < 0) {
             return 0;
         } else {
-            return percent;
+            return percent.toFixed(0);
         }
     };
 
@@ -47,6 +47,7 @@ const Stats = () => {
             const total =  gamesPlayed.reduce((acc, curr) => {
                 return acc += curr.score
                 }, 0)
+            console.log('total', total,'denom', gamesPlayed.length )
             return (
                 <figure>
                     <h4 className="stat">{`${calculatePercent(total, gamesPlayed.length)}%`}</h4>

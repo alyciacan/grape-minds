@@ -7,10 +7,14 @@
     text-align: center;
 }
 
-.trivia-stats,
+
 .saved-wines {
     border-radius: 20%;
     padding-top: 20%;
+}
+
+.trivia-stats {
+    padding-top: 10%;
 }
 
 .saved-wines {
@@ -39,11 +43,24 @@ ul {
 }
 
 .play-again-btn {
-    width: 100%;
+    width: 60%;
+    height: 30px;
+    margin: 5%;
+    color: white;
+    font-weight: bolder;
+    border-radius: 20%;
+    background: linear-gradient(45deg, #86b626, black 40% 60%, #86b626)
+}
+.clear-data-btn {
+    width: 60%;
     height: 30px;
     margin: 5%;
     color: white;
     font-weight: bolder;
     border-radius: 20%;
     background: linear-gradient(45deg, #F05365, black 40% 60%, #F05365)
+}
+
+.section-heading {
+    font-size: 145%;
 }

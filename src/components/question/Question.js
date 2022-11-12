@@ -34,12 +34,9 @@ const Question = ({ questions, updateStats }) => {
             setCurrentQIndex(indexCopy)
         }
     };
-
     const checkAnswer = () => {
         if(userResponse === questions[currentQIndex].correct) {
             updateScore(1)
-        } else {
-            updateScore(-1)
         }
     };
 

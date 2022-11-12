@@ -1,12 +1,19 @@
 import { useContext, React } from 'react';
 import './Dashboard.css';
 import { WineContext } from '../../contexts/WineContext';
+import { ScoreContext } from '../../contexts/ScoreContext';
 import { Link } from 'react-router-dom';
 import Stats from '../stats/Stats';
 
 
 const Dashboard = () => {
     const {wines, setWines} = useContext(WineContext);
+    const {gamesPlayed, setGamesPlayed } = useContext(ScoreContext);
+
+    const clearGameData =() => {
+        if(window.confirm("Do you really want to clear your previous game data?")){
+            setGamesPlayed([]);
+    }}
 
     const deleteWine = (id) => {
         const winesCopy = [...wines];
@@ -37,14 +44,15 @@ const Dashboard = () => {
                     <h2 className="about-text">Grape Minds is the premier trivia game for adventurous oenophiles!</h2>
                 </aside>
                 <section className="trivia-stats">
-                    <h3>My Trivia Stats</h3>
+                    <h3 className="section-heading">My Trivia Stats</h3>
+                    <button className="clear-data-btn" type="button" onClick={ clearGameData }>Clear Previous Games</button>
                     <Stats />
                     <Link to="/">
                         <button type="button" className="play-again-btn">Play again!</button>
                     </Link>
                 </section>
                 <section className="saved-wines">
-                    <h3>My Saved Wines</h3>
+                    <h3 className="section-heading">My Saved Wines</h3>
                     <ul>
                         { fillWineShelf() }
                     </ul>
