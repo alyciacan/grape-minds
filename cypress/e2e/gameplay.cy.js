@@ -81,8 +81,89 @@ describe('Playing trivia', () => {
     cy.url('/gameplay')
   })
 
-  it('shows the user a trivia question with four choices', () => {
-    
+  it('shows the user a trivia question with four choices that are buttons', () => {
+    cy.get('.question-card').within(() => {
+      cy.get('h2').contains('How many kilobytes in one gigabyte (in decimal)?')
+      cy.get('.choices-box').children('.choice').should('have.length', 4).should('be.enabled')
+    })
+  })
+
+  it('has a submit button that is disabled until a user selects a choice', () => {
+    cy.get('.submit-answer-btn').should('be.disabled')
+    cy.get('.choices-box').children('.choice').eq(1).click()
+    cy.get('.submit-answer-btn').should('be.enabled')
+  })
+  
+  it('displays a new question when the user submits their answer', () => {
+    cy.get('.choices-box').children('.choice').eq(1).click()
+    cy.get('.submit-answer-btn').click()
+    cy.get('h2').contains('What is it called when you stop an api request in a testing environment?')
+  })
+
+  it('takes user through 10 questions', () => {
+    cy.get('.choices-box').children('.choice').eq(1).click()
+    cy.get('.submit-answer-btn').click()
+    cy.get('.choices-box').children('.choice').eq(2).click()
+    cy.get('.submit-answer-btn').click()
+    cy.get('.choices-box').children('.choice').eq(3).click()
+    cy.get('.submit-answer-btn').click()
+    cy.get('.choices-box').children('.choice').eq(3).click()
+    cy.get('.submit-answer-btn').click()
+    cy.get('.choices-box').children('.choice').eq(2).click()
+    cy.get('.submit-answer-btn').click()
+    cy.get('.choices-box').children('.choice').eq(3).click()
+    cy.get('.submit-answer-btn').click()
+    cy.get('.choices-box').children('.choice').eq(0).click()
+    cy.get('.submit-answer-btn').click()
+    cy.get('.choices-box').children('.choice').eq(2).click()
+    cy.get('.submit-answer-btn').click()
+    cy.get('.choices-box').children('.choice').eq(1).click()
+    cy.get('.submit-answer-btn').click()
+  })
+})
+
+describe('when the game ends', () => {
+  beforeEach(() => {
+    cy.intercept('GET', 'https://api.spoonacular.com/food/wine/**', { fixture: 'wines' }).as('wine-recs')
+    cy.intercept('GET', 'https://opentdb.com/**', { fixture: 'questions' }).as('trivia-qs')
+    cy.visit('http://localhost:3000/')
+    cy.get('#trivia').select('books')
+    cy.get('#budget').select('$50')
+    cy.get('button.landing-btn').click()
+    cy.wait('@wine-recs')
+    cy.get('.start-btn').click()
+    cy.wait('@trivia-qs')
+    cy.url('/gameplay')
+    cy.get('.choices-box').children('.choice').eq(1).click()
+    cy.get('.submit-answer-btn').click()
+    cy.get('.choices-box').children('.choice').eq(2).click()
+    cy.get('.submit-answer-btn').click()
+    cy.get('.choices-box').children('.choice').eq(3).click()
+    cy.get('.submit-answer-btn').click()
+    cy.get('.choices-box').children('.choice').eq(3).click()
+    cy.get('.submit-answer-btn').click()
+    cy.get('.choices-box').children('.choice').eq(2).click()
+    cy.get('.submit-answer-btn').click()
+    cy.get('.choices-box').children('.choice').eq(3).click()
+    cy.get('.submit-answer-btn').click()
+    cy.get('.choices-box').children('.choice').eq(0).click()
+    cy.get('.submit-answer-btn').click()
+    cy.get('.choices-box').children('.choice').eq(2).click()
+    cy.get('.submit-answer-btn').click()
+    cy.get('.choices-box').children('.choice').eq(1).click()
+  })
+
+  it('navigates the user to the gameover page, where they can see their score as a % and a home button', () => {
+    cy.get('.submit-answer-btn').click()
+    cy.url('/gameover')
+    cy.get('.gameover-score').should('have.text', '90%')
+    cy.get('.home-btn').should('be.visible')
+    })
+
+  it('allows the user to navigate to their dashboard by clicking the home button', () => {
+    cy.get('.submit-answer-btn').click()
+    cy.get('.home-btn').click()
+    cy.url('/dashboard')
   })
 })
 
