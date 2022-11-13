@@ -119,6 +119,8 @@ describe('Playing trivia', () => {
     cy.get('.submit-answer-btn').click()
     cy.get('.choices-box').children('.choice').eq(1).click()
     cy.get('.submit-answer-btn').click()
+    cy.get('.choices-box').children('.choice').eq(3).click()
+    cy.get('.submit-answer-btn').click()
   })
 })
 
@@ -151,17 +153,18 @@ describe('when the game ends', () => {
     cy.get('.choices-box').children('.choice').eq(2).click()
     cy.get('.submit-answer-btn').click()
     cy.get('.choices-box').children('.choice').eq(1).click()
+    cy.get('.submit-answer-btn').click()
+    cy.get('.choices-box').children('.choice').eq(3).click()
+    cy.get('.submit-answer-btn').click()
   })
 
   it('navigates the user to the gameover page, where they can see their score as a % and a home button', () => {
-    cy.get('.submit-answer-btn').click()
     cy.url('/gameover')
     cy.get('.gameover-score').should('have.text', '90%')
     cy.get('.home-btn').should('be.visible')
     })
 
   it('allows the user to navigate to their dashboard by clicking the home button', () => {
-    cy.get('.submit-answer-btn').click()
     cy.get('.home-btn').click()
     cy.url('/dashboard')
   })

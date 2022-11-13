@@ -106,6 +106,18 @@
         "Inheritance from ancestors",
         "Sibling to sibling"
         ]
+        },
+        {
+        "category": "Science: Computers",
+        "type": "multiple",
+        "difficulty": "easy",
+        "question": "What is Alycia's favorite reality TV show?",
+        "correct_answer": "Great British Baking Show",
+        "incorrect_answers": [
+        "The Bachelor",
+        "Floor is Lava",
+        "Drag Race"
+        ]
         }
 ]
 }

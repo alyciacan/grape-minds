@@ -25,27 +25,25 @@ const Question = ({ questions, updateStats }) => {
         e.preventDefault();
         checkAnswer();
         setUserResponse("");
-        if(currentQIndex === (questions.length - 1)) {
+        if(currentQIndex === 9) {
             updateStats();
             navToGameOver();
         } else {
             let indexCopy = currentQIndex;
-            indexCopy++ 
-            setCurrentQIndex(indexCopy)
+            indexCopy++;
+            setCurrentQIndex(indexCopy);
         }
     };
-
     const checkAnswer = () => {
         if(userResponse === questions[currentQIndex].correct) {
-            updateScore(1)
-        } else {
-            updateScore(-1)
+            updateScore(1);
         }
     };
 
     const navToGameOver = () => {
         history.push('/gameover');
     };
+
     return (
         <section className="question-card">
             <h2>{questions[currentQIndex].question}</h2>

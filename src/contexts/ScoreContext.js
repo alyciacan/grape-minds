@@ -10,10 +10,10 @@ export const ScoreProvider = ({ children }) => {
     });
     const [topics, setTopics] = useState([]);
 
-    const value = { lastScore, setLastScore, gamesPlayed, setGamesPlayed, topics, setTopics }
-
     useEffect(() => {
         localStorage.setItem('gamesPlayed', JSON.stringify(gamesPlayed))}, [gamesPlayed]);
     
+    const value = { lastScore, setLastScore, gamesPlayed, setGamesPlayed, topics, setTopics }
+
     return <ScoreContext.Provider value={ value }>{ children }</ScoreContext.Provider>
 };
