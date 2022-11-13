@@ -15,7 +15,7 @@ const getWinePairings = (type, price) => {
 };
 
 const getQuestions = (topic) => {
-    return fetch(`https://opentdb.com/api.php?amount=10&category=${topicCodes[topic]}&type=mutiple`)
+    return fetch(`https://opentdb.com/api.php?amount=10&category=${topicCodes[topic]}&type=multiple`)
         .then(resp => checkResponse(resp))
         .then(resp => formatQuestions(resp.results))
 };

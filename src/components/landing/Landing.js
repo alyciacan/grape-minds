@@ -34,9 +34,9 @@ export const Landing = () => {
             const buyLink = wine.link;
             return (
                 <div className="wine-rec" key={title}>
-                    <Link to={ buyLink }>
+                    <a href={ buyLink } target="_blank" rel="noopener noreferrer">
                         <p>{title}</p>
-                    </Link>
+                    </a>
                     <p id="price">{price}</p>
                     <p className="heart" id={ title } onClick={(e) => {saveWine(e, title, price)}}>&#9825;</p>
                 </div>
@@ -54,7 +54,7 @@ export const Landing = () => {
                     </div>
                     <p className="saved-msg">{ savedMsg }</p>
                     <Link to="/gameplay" className="start-btn">
-                        <button type="button">START TRIVIA!</button>
+                        <button className="start-trivia-btn" type="button">START TRIVIA!</button>
                     </Link>
                 </section>
             )

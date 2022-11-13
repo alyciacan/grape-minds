@@ -24,6 +24,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 60vh;
+    justify-content: space-evenly;
 }
 
 .form > *,
@@ -58,3 +60,17 @@
     position: absolute;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.start-trivia-btn {
+    margin: 15px;
+    color: white;
+    font-weight: bold;
+    width: 10vw;
+    height: 30px;
+    border-radius: 20%;
+    background: linear-gradient(45deg, #86b626, black 40% 60%, #86b626)
+}

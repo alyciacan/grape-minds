@@ -12,6 +12,7 @@
     padding-top: 20%;
     max-width: 18vw;
     margin: 5%;
+    overflow: scroll;
 }
 
 .trivia-stats {
