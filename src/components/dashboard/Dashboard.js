@@ -8,7 +8,7 @@ import Stats from '../stats/Stats';
 
 const Dashboard = () => {
     const {wines, setWines} = useContext(WineContext);
-    const {gamesPlayed, setGamesPlayed } = useContext(ScoreContext);
+    const { setGamesPlayed } = useContext(ScoreContext);
 
     const clearGameData =() => {
         if(window.confirm("Do you really want to clear your previous game data?")){

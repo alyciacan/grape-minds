@@ -27,7 +27,6 @@ const GamePlay = () => {
         copy = 0;
         setLastScore(copy)
     };
-    console.log('lastscore', lastScore, 'gamesplayed:', gamesPlayed )
 
     if(loading) {
         return <p>loading...</p>
