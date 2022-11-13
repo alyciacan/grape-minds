@@ -1,8 +1,8 @@
 import './Landing.css';
-import { Form } from '../form/Form';
 import { useState, useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { getWinePairings } from '../../apiCalls';
+import { Form } from '../form/Form';
+import { getWinePairings } from '../../utility/apiCalls';
 import { WineContext } from '../../contexts/WineContext';
 
 export const Landing = () => {
@@ -31,9 +31,12 @@ export const Landing = () => {
         return pairings.map(wine => {
             const price = wine.price;
             const title = wine.title;
+            const buyLink = wine.link;
             return (
                 <div className="wine-rec" key={title}>
-                    <p>{title}</p>
+                    <Link to={ buyLink }>
+                        <p>{title}</p>
+                    </Link>
                     <p id="price">{price}</p>
                     <p className="heart" id={ title } onClick={(e) => {saveWine(e, title, price)}}>&#9825;</p>
                 </div>

@@ -46,7 +46,6 @@ const Stats = () => {
             const total =  gamesPlayed.reduce((acc, curr) => {
                 return acc += curr.score
                 }, 0)
-            console.log('total', total,'denom', gamesPlayed.length )
             return (
                 <figure>
                     <h4 className="stat">{`${calculatePercent(total, gamesPlayed.length)}%`}</h4>
