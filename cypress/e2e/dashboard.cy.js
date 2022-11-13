@@ -74,12 +74,16 @@ describe('user dashboard with games played', () => {
     cy.get(':nth-child(4) > .stat').should('have.text', 'port')
   })
 
+  it('shows details about wines they have saved', () => {
+    cy.contains('Weird Little Frog Port').should('be.visible')
+    cy.contains('$25.59').should('be.visible')
+  })
+
   it('allows user to clear their previous scores, they have to confirm that\'s what they want, and then the stats display will reflect the cleared data', () => {
     cy.window().then((win) =>
       cy.stub(win, 'confirm').as('confirm').returns(true),
     )
     cy.get('.clear-data-btn').click()
-    
     cy.get(':nth-child(1) > .stat').should('have.text', 'No games played!')
     cy.get(':nth-child(2) > .stat').should('have.text', 'No games played!')
     cy.get(':nth-child(3) > .stat').should('have.text', 'No games played!')
@@ -90,4 +94,18 @@ describe('user dashboard with games played', () => {
     cy.contains('No wines saved!').should('be.visible')
   })
 
+  it('uses localStorage to store score and wine data so that it will persist across page refreshes', () => {
+    cy.reload()
+    cy.get(':nth-child(1) > .stat').should('have.text', '1')
+    cy.get(':nth-child(2) > .stat').should('have.text', '90%')
+    cy.get(':nth-child(3) > .stat').should('have.text', 'books')
+    cy.get(':nth-child(4) > .stat').should('have.text', 'port')
+    cy.contains('Weird Little Frog Port').should('be.visible')
+    cy.contains('$25.59').should('be.visible')
+  })
+
+  it('has a button the user can click to play another game', () => {
+    cy.get('.play-again-btn').click()
+    cy.url('/landing')
+  })
 })
