@@ -8,6 +8,7 @@ import { WineContext } from '../../contexts/WineContext';
 export const Landing = () => {
     const [pairings, setPairings] = useState([]);
     const [savedMsg, setSavedMsg] = useState("")
+    const [errMsg, setErrMsg] = useState("")
     const { wines, setWines } = useContext(WineContext);
     const wineType = useRef("");
 
@@ -15,6 +16,7 @@ export const Landing = () => {
         wineType.current = type;
         getWinePairings(type, price)
             .then(wineArr => setPairings(wineArr.recommendedWines))
+            .catch(() => setErrMsg("Error: Cannot retrieve data. Try again later."))
     };
 
     const saveWine = (e, title, price) => {
@@ -43,6 +45,13 @@ export const Landing = () => {
             )
         })
     };
+    
+    const checkForErr = () => {
+        if(errMsg) {
+            console.log(errMsg)
+            return <p className="err-msg">{ errMsg }</p>
+        }
+    }
 
     const toggleView = () => {
         if(pairings.length) {
@@ -72,6 +81,7 @@ export const Landing = () => {
     return (
         <section className="landing-bubble">
             { toggleView() }
+            { checkForErr() }
         </section>
     )
 

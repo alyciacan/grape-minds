@@ -18,6 +18,7 @@ const getQuestions = (topic) => {
     return fetch(`https://opentdb.com/api.php?amount=10&category=${topicCodes[topic]}&type=multiple`)
         .then(resp => checkResponse(resp))
         .then(resp => formatQuestions(resp.results))
+        .catch(err => err)
 };
 
 export { getWinePairings, getQuestions }

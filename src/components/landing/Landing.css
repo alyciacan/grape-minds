@@ -3,6 +3,7 @@
     width: 100vw;
     display: flex;
     justify-content: center;
+    flex-direction: column;
 }
 
 .welcome-form,
@@ -73,4 +74,9 @@ a {
     height: 30px;
     border-radius: 20%;
     background: linear-gradient(45deg, #86b626, black 40% 60%, #86b626)
+}
+
+.err-msg {
+    color: #F05365;
+    font-weight: bold;
 }

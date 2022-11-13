@@ -15,7 +15,8 @@ const GamePlay = () => {
         getQuestions(topics[0])
             .then(resp => setQuestions(resp))
             .then(() => setLoading(false))
-            .then(() => resetScores());
+            .then(() => resetScores())
+            .catch(err => setLoading(err))
     }, []);
 
     const updateStats = () => {
