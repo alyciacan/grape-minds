@@ -1,0 +1,13 @@
+.error-page {
+    margin: 0 auto;
+    padding-top: 25%;
+}
+
+.dashboard-btn {
+    margin: 15px;
+    color: white;
+    width: 10vw;
+    height: 30px;
+    border-radius: 20%;
+    background: linear-gradient(45deg, #86b626, black 40% 60%, #86b626)
+}

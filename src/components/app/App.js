@@ -4,6 +4,7 @@ import { Landing } from '../landing/Landing';
 import Dashboard from '../dashboard/Dashboard';
 import GamePlay from '../gameplay/GamePlay';
 import GameOver from '../gameover/GameOver';
+import ErrorPage from '../errorPage/ErrorPage';
 import { Switch, Route } from 'react-router-dom';
 import mascot from '../../assets/smart-grape.png';
 
@@ -19,14 +20,17 @@ function App() {
           <Route exact path="/">
             <Landing />
           </Route>
-          <Route path="/dashboard">
+          <Route exact path="/dashboard">
               <Dashboard />
             </Route> 
-          <Route path="/gameplay">
+          <Route exact path="/gameplay">
             <GamePlay />
           </Route>
-          <Route path="/gameover">
+          <Route exact path="/gameover">
             <GameOver />
+          </Route>
+          <Route path="/">
+            <ErrorPage />
           </Route>
       </Switch>
     </div>
