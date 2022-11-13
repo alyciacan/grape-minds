@@ -1,7 +1,8 @@
 import './GamePlay.css';
-import { getQuestions } from '../../apiCalls';
+import { getQuestions } from '../../utility/apiCalls';
 import { ScoreContext } from '../../contexts/ScoreContext';
 import { useEffect, useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Question from '../question/Question';
 
 const GamePlay = () => {
@@ -14,7 +15,8 @@ const GamePlay = () => {
         getQuestions(topics[0])
             .then(resp => setQuestions(resp))
             .then(() => setLoading(false))
-            .then(() => resetScores());
+            .then(() => resetScores())
+            .catch(err => setLoading(err))
     }, []);
 
     const updateStats = () => {
@@ -29,7 +31,16 @@ const GamePlay = () => {
     };
 
     if(loading) {
-        return <p>loading...</p>
+        return <p className="loading-msg">loading...</p>
+    } else if (!questions.length) {
+        return (
+            <div className="no-load-box">
+                <p>Unable to retrieve questions. Please try again later.</p>
+                <Link to="/dashboard">
+                    <button type="button" className="error-home-btn">Home</button>
+                </Link>
+            </div>
+        )
     } else {
         return (
             <section className="gameplay">

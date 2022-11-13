@@ -1,20 +1,9 @@
-.gameplay {
-    margin: 10% 20% 0 30%;
-}
-
-.loading-msg {
+.error-page {
     margin: 0 auto;
     padding-top: 25%;
-    font-size: 150%;
 }
 
-.no-load-box {
-    margin: 0 auto;
-    padding-top: 25%;
-    font-size: 150%;
-}
-
-.error-home-btn {
+.dashboard-btn {
     margin: 15px;
     color: white;
     width: 10vw;

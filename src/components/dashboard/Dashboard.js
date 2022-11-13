@@ -30,8 +30,8 @@ const Dashboard = () => {
             return (
             <li key={ wine.wineLabel } id={ wine.wineLabel }>
                 <span className="label">{ wine.wineLabel }</span>
-                <span className="price">{ wine.price }</span>
-                <p onClick={() => { deleteWine(id) }}>🗑️</p>
+                <p className="price">{ wine.price }</p>
+                <p className="wastebasket" onClick={() => { deleteWine(id) }}>🗑️</p>
                 <hr/>
             </li>
             )    

@@ -1,13 +1,14 @@
 import './Landing.css';
-import { Form } from '../form/Form';
 import { useState, useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { getWinePairings } from '../../apiCalls';
+import { Form } from '../form/Form';
+import { getWinePairings } from '../../utility/apiCalls';
 import { WineContext } from '../../contexts/WineContext';
 
 export const Landing = () => {
     const [pairings, setPairings] = useState([]);
     const [savedMsg, setSavedMsg] = useState("")
+    const [errMsg, setErrMsg] = useState("")
     const { wines, setWines } = useContext(WineContext);
     const wineType = useRef("");
 
@@ -15,6 +16,7 @@ export const Landing = () => {
         wineType.current = type;
         getWinePairings(type, price)
             .then(wineArr => setPairings(wineArr.recommendedWines))
+            .catch(() => setErrMsg("Error: Cannot retrieve data. Try again later."))
     };
 
     const saveWine = (e, title, price) => {
@@ -31,15 +33,25 @@ export const Landing = () => {
         return pairings.map(wine => {
             const price = wine.price;
             const title = wine.title;
+            const buyLink = wine.link;
             return (
                 <div className="wine-rec" key={title}>
-                    <p>{title}</p>
+                    <a href={ buyLink } target="_blank" rel="noopener noreferrer">
+                        <p>{title}</p>
+                    </a>
                     <p id="price">{price}</p>
                     <p className="heart" id={ title } onClick={(e) => {saveWine(e, title, price)}}>&#9825;</p>
                 </div>
             )
         })
     };
+    
+    const checkForErr = () => {
+        if(errMsg) {
+            console.log(errMsg)
+            return <p className="err-msg">{ errMsg }</p>
+        }
+    }
 
     const toggleView = () => {
         if(pairings.length) {
@@ -51,7 +63,7 @@ export const Landing = () => {
                     </div>
                     <p className="saved-msg">{ savedMsg }</p>
                     <Link to="/gameplay" className="start-btn">
-                        <button type="button">START TRIVIA!</button>
+                        <button className="start-trivia-btn" type="button">START TRIVIA!</button>
                     </Link>
                 </section>
             )
@@ -69,6 +81,7 @@ export const Landing = () => {
     return (
         <section className="landing-bubble">
             { toggleView() }
+            { checkForErr() }
         </section>
     )
 

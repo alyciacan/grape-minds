@@ -2,23 +2,21 @@
     display: grid;
     grid-template-columns: 1.5fr 1.5fr 1fr;
     column-gap: 30px;
-    padding: 10px;
+    padding: 5px;
     width: 100vw;
     text-align: center;
 }
 
-
 .saved-wines {
     border-radius: 20%;
     padding-top: 20%;
+    max-width: 18vw;
+    margin: 5%;
+    overflow: scroll;
 }
 
 .trivia-stats {
-    padding-top: 10%;
-}
-
-.saved-wines {
-    max-width: 18vw;
+    padding-top: 8%;
 }
 
 .trivia-stats, 
@@ -36,6 +34,7 @@
 
 li {
     list-style: none;
+    margin-top: 3%;
 }
 
 ul {
@@ -63,4 +62,8 @@ ul {
 
 .section-heading {
     font-size: 145%;
+}
+
+.wastebasket {
+    margin: 2% 0% 2% 0%;
 }
