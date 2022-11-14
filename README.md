@@ -60,7 +60,9 @@
 ## About The Project
 <div align="center">
 <img height="450" src="https://user-images.githubusercontent.com/105533317/201579599-d7dbdc8c-69be-471a-b667-18069494fbe2.gif" />
-Code Architecture:
+<br />
+  <h4>Code Architecture:</h4>
+<br />
 <img height="400" src="https://user-images.githubusercontent.com/105533317/201593646-93e84a82-ee0a-4fa4-a476-b093be3bc9a4.png" />
 </div>
 
