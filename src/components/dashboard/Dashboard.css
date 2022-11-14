@@ -42,6 +42,7 @@ ul {
 }
 
 .play-again-btn {
+    cursor: pointer;
     width: 60%;
     height: 30px;
     margin: 5%;
@@ -51,6 +52,7 @@ ul {
     background: linear-gradient(45deg, #86b626, black 40% 60%, #86b626)
 }
 .clear-data-btn {
+    cursor: pointer;
     width: 60%;
     height: 30px;
     margin: 5%;
@@ -66,4 +68,6 @@ ul {
 
 .wastebasket {
     margin: 2% 0% 2% 0%;
+    cursor: pointer;
+    display: inline;
 }
