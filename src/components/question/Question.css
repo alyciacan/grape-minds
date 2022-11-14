@@ -1,7 +1,7 @@
 .question-card {
     display: flex;
     flex-direction: column;
-    height: 40vh;
+    min-height: 50vh;
     width: 40vw;
     justify-content: space-between;
 }
@@ -28,5 +28,37 @@
     position: absolute;
     top: 10%;
     right: 10%;
+    margin: 2%;
+}
+
+.submit-answer-btn {
+    margin: 1%;
+}
+
+@media screen and (max-width: 865px) {
+    .question-card {
+        min-height: 90%;
+        overflow: scroll;
+        min-width: 60vw;
+    }
+    .score-display {
+        position: unset;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .question-card {
+        min-height: 95vh;
+        justify-content: space-evenly;
+        overflow: scroll;
+        min-width: 60vw;
+        margin-top: 0%;;
+    }
+    .choices-box {
+        display: grid;
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 10%;
+    }
 }
 

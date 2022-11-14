@@ -31,3 +31,11 @@
   position: absolute;
   height: 100vh;
 }
+
+@media only screen and (max-width: 800px) {
+  .mascot {
+    max-height: 14vh;
+    bottom: 2%;
+    left: 30%;
+  }  
+}
