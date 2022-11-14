@@ -17,6 +17,8 @@
 .error-home-btn {
     margin: 15px;
     color: white;
+    font-weight: bold;
+    cursor: pointer;
     width: 10vw;
     height: 30px;
     border-radius: 20%;

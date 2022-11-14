@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     height: 40vh;
-    width: 50vw;
+    width: 40vw;
     justify-content: space-between;
 }
 
@@ -21,5 +21,12 @@
 
 .submit-answer-btn:enabled {
     cursor: pointer;
+}
+
+.score-display {
+    font-size: 125%;
+    position: absolute;
+    top: 10%;
+    right: 10%;
 }
 

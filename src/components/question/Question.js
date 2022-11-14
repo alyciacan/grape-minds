@@ -10,7 +10,8 @@ const Question = ({ questions, updateStats }) => {
     let [userResponse, setUserResponse] = useState("");
     const { lastScore, setLastScore } = useContext(ScoreContext);
     const history = useHistory();
-
+    let buttonStyle = {};
+    
     const handleClick = (e) => {
         setUserResponse(e.target.id);
     };
@@ -34,10 +35,11 @@ const Question = ({ questions, updateStats }) => {
             setCurrentQIndex(indexCopy);
         }
     };
+
     const checkAnswer = () => {
         if(userResponse === questions[currentQIndex].correct) {
             updateScore(1);
-        }
+        };
     };
 
     const navToGameOver = () => {
@@ -46,10 +48,11 @@ const Question = ({ questions, updateStats }) => {
 
     return (
         <section className="question-card">
+            <h3 className="score-display">{ lastScore } / { currentQIndex }</h3>
             <h2>{questions[currentQIndex].question}</h2>
             <div className="choices-box">
                 { questions[currentQIndex].possAnswers.map((choice) => {
-                    return <button type="button" className="choice" key={ choice } id={ choice } onClick={(e) => { handleClick(e)} }>{ choice }</button> }
+                    return <button type="button" className="choice" style={ buttonStyle }key={ choice } id={ choice } onClick={(e) => { handleClick(e)} }>{ choice }</button> }
                 )}
             </div>
             <button type="button" className="submit-answer-btn" disabled={!userResponse} onClick={(e) => { handleSubmit(e) } }>Submit</button>

@@ -68,6 +68,7 @@ a {
 
 .start-trivia-btn {
     margin: 15px;
+    cursor: pointer;
     color: white;
     font-weight: bold;
     width: 10vw;
