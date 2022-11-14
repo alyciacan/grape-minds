@@ -9,7 +9,6 @@
     box-shadow: 8px 0px 5px #F05365;
     padding: 3%;
     background-image: linear-gradient(90deg, black, #F05365)
-
 }
 
 .gameover-score {
@@ -23,3 +22,21 @@
 .game-over-hdr {
     font-size: 200%;
 }
+
+@media only screen and (max-width: 800px) {
+    .game-over {
+        margin: 30% 20% 0 30%;
+    }
+  }
+
+  @media only screen and (max-width: 500px) {
+    .gameover-score {
+        font-size: 120%;
+    }
+    .game-over-hdr {
+        font-size: 150%;
+    }
+
+
+
+  }
