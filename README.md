@@ -9,6 +9,7 @@
   </a>
 
 <h3 align="center">The Premier Trivia Game for Adventurous Wine Snobs</h3>
+<img width="350" src="https://user-images.githubusercontent.com/105533317/201592658-d9ecec3f-ef1b-4cd2-81ee-ac2df6441a6f.png" />
 
 <h4 align="center"><a href="https://grape-minds.vercel.app/">Deploy Link</a></h4>
 
@@ -58,7 +59,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 <div align="center">
-<img src="https://user-images.githubusercontent.com/105533317/201579599-d7dbdc8c-69be-471a-b667-18069494fbe2.gif" />
+<img height="450" src="https://user-images.githubusercontent.com/105533317/201579599-d7dbdc8c-69be-471a-b667-18069494fbe2.gif" />
+Code Architecture:
+<img height="400" src="https://user-images.githubusercontent.com/105533317/201593646-93e84a82-ee0a-4fa4-a476-b093be3bc9a4.png" />
 </div>
 
 Grape Minds is my submission for the [Showcase Project assignment](https://frontend.turing.edu/projects/module-3/showcase.html), a solo project with the following learning goals:
@@ -133,7 +136,7 @@ I'm a student in the Front-End Software Engineering program at [Turing School of
 ## Contact
 
 Alycia Canavan     
-[Email](mailto:alycia.canavan@gmail.com)
+[Email](mailto:alycia.canavan@gmail.com)      
 [GitHub](https://github.com/alyciacan)    
 [LinkedIn](www.linkedin.com/in/alycia-canavan)        
 
