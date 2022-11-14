@@ -1,10 +1,7 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a name="readme-top"></a>
 
-<!-- PROJECT SHIELDS -->
-<!--
+
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
 
 
 <!-- PROJECT LOGO -->
@@ -17,7 +14,10 @@
 <h3 align="center">The Premier Trivia Game for Adventurous Wine Snobs</h3>
 
   <p align="center">
-    project_description
+    If you are forever plagued with the burden of having to choose a wine to pair with your favorite trivia categories, fret no more: <b>Grape Minds</b> is here to ease your troubles. 
+    <br />
+    <b>Grape Minds</b> is an interactive trivia app that allows users to select a trivia category and their budget for a bottle of wine, and then receive a tailored list of wines that pair perfectly with the user's selected trivia category. Users can <b>save</b> recommended wines to a list, and/or follow links to order recommended wines from online retailers. 
+    <br />
     <br />
     <a href="https://github.com/alyciacan/grape-minds"><strong>Explore the docs »</strong></a>
     <br />
