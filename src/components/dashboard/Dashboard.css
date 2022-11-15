@@ -19,17 +19,17 @@
     padding-top: 8%;
 }
 
-.trivia-stats, 
-.about {
+.trivia-stats {
     max-width: 35vw;
 }
 
 .about {
     padding-top: 30%;
+    max-width: 30vw;
 }
 
 .about-text {
-    font-size: 250%;
+    font-size: 220%;
 }
 
 li {
